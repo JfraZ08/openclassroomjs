@@ -193,7 +193,7 @@
 // }
 // else if(temperature < 10)
 // {
-//     console.log("Il fait frais");
+    // console.log("Il fait frais");
 // }
 // else if(temperature < 20)
 // {
