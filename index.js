@@ -84,59 +84,173 @@
 
 // Exo2
 
-class Show {
-    constructor(title, numberOfSeasons, episodesPerSeason) {
-      this.title = title;
-      this.numberOfSeasons = numberOfSeasons;
-      this.episodesPerSeason = episodesPerSeason;
-  }
+// class Show {
+//     constructor(title, numberOfSeasons, episodesPerSeason) {
+//       this.title = title;
+//       this.numberOfSeasons = numberOfSeasons;
+//       this.episodesPerSeason = episodesPerSeason;
+//   }
+// }
+
+// const tau = new Show('The Story of Tau', 5, 12);
+// const meldrum = new Show('The Hero of Old Meldrum', 3, 6);
+// const clara = new Show('The Bugs of Isla Clara', 6, 15);
+
+// const shows = [tau, meldrum, clara];
+
+// // Modify the following code
+// // ======================
+
+// const generateComponent = (show) => {
+//     const titleText = show.title;
+//     const seasonsText = show.numberOfSeasons + ' seasons';
+//     const episodesPerSeason = show.episodesPerSeason + ' episodes per season';
+//     return {
+//         titleText,
+//         seasonsText,
+//         episodesPerSeason
+//     };
+// }
+
+
+// const showComponents = [tauComponent, meldrumComponent, claraComponent];
+
+// // ======================
+// // Modify the code above
+
+// const body = document.querySelector('body');
+
+// const updateShows = () => {
+//   for (let show of showComponents) {
+//     const showPane = document.createElement('div');
+//     showPane.classList.add('series-frame');
+//     const showHeading = document.createElement('h2');
+//     showHeading.innerText = show.titleText;
+//     const showDetails = document.createElement('p');
+//     const seasons = document.createElement('p');
+//     seasons.innerText = show.seasonsText;
+//     const episodes = document.createElement('p');
+//     episodes.innerText = show.episodesText;
+//     showDetails.append(seasons);
+//     showDetails.append(episodes);
+//     showPane.append(showHeading);
+//     showPane.append(showDetails);
+//     body.append(showPane);
+//   }
+// };
+
+// updateShows();
+
+// // Exo3
+
+// //-----CODE NON DRY------
+
+// //variable de différentes personnes
+// let personne1 = "Jean";
+// let personne2 = "Paul";
+// let personne3 = "Marcel";
+
+// function saluer(prenom) {
+// //On met la première lettre en majuscule, on salue la première personne et on donne le nombre de lettre dans son prénom    
+// const monPrenom = prenom[0].toUpperCase() + prenom.substr(1);
+// const longueurPrenom = monPrenom.length;
+// console.log(`Bonjour ${monPrenom}, ton prénom contient ${longueurPrenom} lettres`);
+// }
+// // On salue les 3 personnes 
+// saluer(personne1);
+// saluer(personne2);
+// saluer(personne3);
+
+
+// //-----CODE MAL NOMMÉ------
+
+// //tableau des ages des élèves dans la classe
+// const agesEleveDeClasse = [14, 14, 15, 14, 16, 14, 14, 13]; // lrf
+// // Nombre d'élèves
+// const nombreEleves = agesEleveDeClasse.length; // kf
+// // variable pour calculer la somme des ages
+// let sommeAges = 0; //mf
+// for(let age of agesEleveDeClasse){
+//   sommeAges += age;
+// }
+// //moyenne d'age dans la classe
+// const moyenneAgesDeClasse = sommeAges / nombreEleves;
+// console.log('Il y a ' + nombreEleves + " élèves dans la classe et la moyenne d'age est " + moyenneAgesDeClasse);
+    
+
+
+// //-----CODE MAL MIS EN FORME------
+
+// const temperature = 25;
+
+// if(temperature < 10)
+// {  
+//     console.log("Il fait très froid"); 
+// }
+// else if(temperature < 0)
+// {
+//     console.log("Il fait froid");
+// }
+// else if(temperature < 10)
+// {
+//     console.log("Il fait frais");
+// }
+// else if(temperature < 20)
+// {
+//     console.log("Il fait doux");
+// }
+// else if(temperature < 30)
+// {
+//     console.log("Il fait bon");
+// }
+// else
+// {  
+//   console.log("Il fait chaud");
+// }
+
+// Exo4 
+
+//On pointe sur l'élément de message
+const espaceMessage = document.getElementById("message");
+//On pointe sur l'élément de bouton
+const bouton = document.getElementById("bouton");
+//On pointe sur l'élément de champ de saisie de l'année
+const anneeInput = document.getElementById("annee");
+
+let params = [];
+for(let i = 20; i > 0; i--){
+  params.push(i);
 }
 
-const tau = new Show('The Story of Tau', 5, 12);
-const meldrum = new Show('The Hero of Old Meldrum', 3, 6);
-const clara = new Show('The Bugs of Isla Clara', 6, 15);
+//On défini la variage année qu'on utilisera et un variable définissant l'age de la majorité
+let annee;
 
-const shows = [tau, meldrum, clara];
-
-// Modify the following code
-// ======================
-
-const generateComponent = (show) => {
-    const titleText = show.title;
-    const seasonsText = show.numberOfSeasons + ' seasons';
-    const episodesPerSeason = show.episodesPerSeason + ' episodes per season';
-    return {
-        titleText,
-        seasonsText,
-        episodesPerSeason
-    };
+function onConvert(){  
+  
+  //On récupère la saisie de l'année et on transforme le texte en nombre entier
+  annee = parseInt(anneeInput.value);
+  //Si la saisie n'est pas un nombre, on affiche un message d'erreur
+  if(isNaN(annee)){
+    alert("Ceci n'est pas un nombre");
+    return;
+  }
+// Dans notre calcul, on souhaite récupérer la valeur du tableau qui vaut 12. On trouve cette valeur à l’index 8.
+  const mois = annee * params[8];
+  
+  // ANALYSER ICI AVEC CONSOLE LOG
+  // Analyser la variable annee
+  console.log('annee',annee);
+  // Analyser la variable params
+  console.log('params',params);
+  // Analyser la variable mois
+  console.log(mois);
+  // FIN ANALYSE
+  
+  espaceMessage.innerHTML = annee + " années font " + mois + "mois ";
 }
 
 
-const showComponents = [tauComponent, meldrumComponent, claraComponent];
 
-// ======================
-// Modify the code above
+//On écoute l'action de click sur le onConvert et on appelle la fonction onConvert
+bouton.addEventListener('click', onConvert);
 
-const body = document.querySelector('body');
-
-const updateShows = () => {
-  for (let show of showComponents) {
-    const showPane = document.createElement('div');
-    showPane.classList.add('series-frame');
-    const showHeading = document.createElement('h2');
-    showHeading.innerText = show.titleText;
-    const showDetails = document.createElement('p');
-    const seasons = document.createElement('p');
-    seasons.innerText = show.seasonsText;
-    const episodes = document.createElement('p');
-    episodes.innerText = show.episodesText;
-    showDetails.append(seasons);
-    showDetails.append(episodes);
-    showPane.append(showHeading);
-    showPane.append(showDetails);
-    body.append(showPane);
-  }
-};
-
-updateShows();

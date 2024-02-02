@@ -20,3 +20,15 @@ Cependant, pour l'instant, le même code est répété pour chaque série. L'end
     Créez une fonction qui vous permet de refactoriser ce code, afin de le raccourcir et de le rendre plus lisible.
 
     Appelez votre nouvelle fonction pour chaque série pour créer le composant correspondant, en passant les arguments appropriés.
+
+## Exo3
+
+Voici un code js avec plusieurs fonctions et différentes mauvaises pratiques rendant le code pas propre. Votre objectif est de créer une fonction pour alléger votre code.
+
+## Exo4
+
+Le code a pour objectif de convertir des années en mois (dans une année, il y a 12 mois). Si on saisit 10 ans dans le champ Année et qu’on clique sur Convertir, on se retrouve avec une phrase nous indiquant que dans 10 années il y a 80 mois, ce qui est faux car la bonne réponse est 120 mois.
+
+Le calcul des mois se fait à la ligne 25, et on souhaite comprendre ce qui ne va pas dans le calcul.
+
+Votre mission ici est de faire des console.log au niveau des lignes 27 à 31 pour analyser les variables utilisées pour le calcul de la ligne 25. Suite à l'analyse, vous pourrez comprendre ce qui ne va pas et effectuer la correction nécessaire.
